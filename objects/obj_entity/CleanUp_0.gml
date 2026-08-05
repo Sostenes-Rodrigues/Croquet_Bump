@@ -1,0 +1,1 @@
+delete state_txt_struct_strings;

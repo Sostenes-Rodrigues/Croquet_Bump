@@ -1,0 +1,6 @@
+enum IMAGE_INDEX_ENEMIES {
+	DEMON,
+    SHIELD,
+    SLIME,
+    FAIRY
+}

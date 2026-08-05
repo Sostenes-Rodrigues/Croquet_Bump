@@ -1,0 +1,30 @@
+Player criar a mira e fazer ela rodar - Feito
+
+Criar o obj rastro para o efeito maneiro
+
+Fazer o obj control criar as ondas de inimigos
+
+
+
+
+
+
+
+Mira (ang_start): X do inimigo mais proximo e Y do meio da room
+
+
+
+Fazer um quadro com um desenho tipo do "tutorial de issac" (Pegar o obj tutorial que fiz no TCC)
+
+with (global.selected_entity) {
+    // Me desenhando
+    draw_self()
+    
+    
+	/// Rodar a funcao de carga da mira
+    if draw_sight{
+        if instance_exists(global.selected_entity){
+            ang_to_shoot = Loading_sight(ang_to_shoot, 0, global.selected_entity.x, global.selected_entity.y)
+        }
+    }
+}

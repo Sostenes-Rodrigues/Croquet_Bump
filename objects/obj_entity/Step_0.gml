@@ -1,0 +1,2 @@
+// Run current state
+state()
