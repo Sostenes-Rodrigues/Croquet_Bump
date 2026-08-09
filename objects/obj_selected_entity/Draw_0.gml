@@ -8,6 +8,11 @@ with (global.selected_entity) {
             
             // Efeito de screenshake
             screenshake(choose(1, 2))
+            
+            //
+            tween(id, "percent_overload_power", 1, tween_animation.circ_in, 4 * FPS_GAME)
+            
+            image_blend = merge_colour(c_white, make_colour_rgb(255 * percent_overload_power, 0, 80 * percent_overload_power), percent_overload_power)
         }
     }
 }

@@ -24,16 +24,18 @@ if instance_exists(obj_selected_entity){
             boss_create = true
             
             // Pegando a proxima posicao de criacao dos inimigos
-            creation_pos_x += creation_sep_round_x_max * random_range(0.8, 1)
+            creation_pos_x -= creation_sep_round_x_max * random_range(0.1, 0.2)
             
-            // Crio o obj boss
-            show_message("Boss criado")
+            /// Crio o boss
+            instance_create_layer(creation_pos_x - 53.5, 326.5, "Level_front", obj_boss_top)
+            instance_create_layer(creation_pos_x - 21, 408.5, "Level_front", obj_boss_middle)
+            instance_create_layer(creation_pos_x, 482, "Level_front", obj_boss_bottom)
         }
     }
 }
 
 /// Reiniciando a fase
-//if (keyboard_check_pressed(ord("R"))) cria_transicao_inicia(room);
+if (keyboard_check_pressed(ord("R"))) cria_transicao_inicia(room);
 
 
 /// Debug

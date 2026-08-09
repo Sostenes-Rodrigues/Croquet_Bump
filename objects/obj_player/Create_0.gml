@@ -1,5 +1,5 @@
 // Delay for start
-timer_delay_start = 1.5 * FPS_GAME
+timer_delay_start = 0.5 * FPS_GAME
 
 // Variavel de controle para poder atirar
 can_shoot = true

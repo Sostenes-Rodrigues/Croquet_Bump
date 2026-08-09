@@ -1,4 +1,4 @@
-GDD (Verificar como vai ser para mandar o projeto)
+GDD (Verificar como vai ser para mandar o projeto)  URGENTE
 
 FAZER OS EFEITOS UNICOS DE CADA INIMIGO - Feito
 
@@ -8,7 +8,7 @@ Menu com as opcoes, Jogar, Ligar ou desligar o tutorial e Ligar ou desligar tela
 
 Player criar a mira e fazer ela rodar - Feito
 
-Criar o obj rastro para o efeito maneiro
+Criar o obj rastro para o efeito maneiro - Feito
 
 Fazer o obj control criar as ondas de inimigos - Feito
 
@@ -22,13 +22,13 @@ Ajeitar o lancamento de poder - Feito
 
 Ajeitar o lancamento do poder na Entidade Selecionada - Feito
 
-Efeito de quando o poder estar sendo mirado (talvez so um screenshake)
+Efeito de quando o poder estar sendo mirado (talvez so um screenshake) - Feito
 
-A instancia que estar carregando o poder vai ficando meio vermelho e roxo ate a cor ficar muito forte e ele explodir
+A instancia que estar carregando o poder vai ficando meio vermelho e roxo ate a cor ficar muito forte e ele explodir - Feito
 
-Fazer o BOSS
+Fazer o BOSS - Feito
 
-Fazer um quadro com um desenho tipo do "tutorial de issac" (Pegar o obj tutorial que fiz no TCC)
+Fazer um quadro com um desenho tipo do "tutorial de issac" (Pegar o obj tutorial que fiz no TCC), as imagens vao ser prints do jogo
 
 Ir para room menu ao o jogador perder - Feito
 
@@ -46,10 +46,29 @@ Testar colisao quadrada - Feito
 
 
 
-Desenhos que falta:
+Desenhos que falta: URGENTE
     CAPA (Required (Minimum: 315x250, Recommended: 630x500))
     quadro do tutorial
     explosao de fogo
     carga do poder (talvez)
     titulo do jogo (espaco de tras)
-    Final
+    Final (Talvez so uma tela preta, com um texto)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tutorial:
+    Oh não! O rei demonia está vindo dominar toda civilização a sua vista. So quem pode impedi-lo é o cavaleiro que embunha o Martelo Estelar e a Bola Cósmica.
+    Segure o Botão Esquerdo do Mouse para mirar e soltei para lançar.
+    Ao acertar em algo, possua aquele objeto.
+    Após um interva, vocẽ poderar se propossionar usando seu poder segurando o botao esquerdo do mouse e depois soltando, só cuidado para não sobrecarregar. Agora vá explodir seus inimigos :)

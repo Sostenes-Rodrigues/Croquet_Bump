@@ -1,5 +1,7 @@
-// Passando o tempo do delay
-timer_delay_start = clamp(timer_delay_start - 1, 0, 2 * FPS_GAME)
+/// Passando o tempo do delay
+if !instance_exists(obj_tutorial){
+    timer_delay_start = clamp(timer_delay_start - 1, 0, 2 * FPS_GAME)
+}
 
 /// Se posso comecar, posso atirar a bola
 if (timer_delay_start <= 0) and can_shoot{

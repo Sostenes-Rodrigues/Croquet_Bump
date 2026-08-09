@@ -55,4 +55,11 @@ with (global.selected_entity) {
             }
         }
     }
+    
+    /// Se sobrecarreguei
+    if (percent_overload_power >= 1){
+        instance_destroy(id)
+        
+        cria_transicao_inicia(rm_menu)
+    }
 }

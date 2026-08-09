@@ -16,7 +16,7 @@ creation_sep_round_x_max = camera_get_view_width(view_camera[0]) / 1.4
 array_last3_pos_x_round = []
 
 // Numero de rounds ate o boss
-round_max = 10
+round_max = 5
 
 // Round atual
 round_current = 0
@@ -26,7 +26,12 @@ boss_create = false
 
 
 // Metodo para criar uma fileira de inimigos
-create_round = function(_x_start, _y_start, _state_txt){
+create_round = function(_x_start, _y_start, _state_txt, _att_boss=false){
+    //
+    static __array_boss_attack = [1, 0, 0, 0]
+    //
+    __array_boss_attack = array_shuffle(__array_boss_attack)
+    
     // Cria 4 inimigos
     for (var e = 0; e < 4; e++) {
         // Posicao vertical de cada inimigo
@@ -34,8 +39,16 @@ create_round = function(_x_start, _y_start, _state_txt){
         
         // Criando a instancia do inimigo
     	var _inst_enemy = instance_create_layer(_x_start, _yy, "Enemies", obj_enemy_father)
-        // Passando um tipo de inimigo aleatoriamente
-        _inst_enemy.image_index = choose(IMAGE_INDEX_ENEMIES.DEMON, IMAGE_INDEX_ENEMIES.SHIELD, IMAGE_INDEX_ENEMIES.SLIME, IMAGE_INDEX_ENEMIES.FAIRY)
+        ///
+        if _att_boss{
+            _inst_enemy.sprite_index = spr_boss_attack
+            _inst_enemy.image_index = __array_boss_attack[e]
+            
+        }
+        else {
+        	// Passando um tipo de inimigo aleatoriamente
+            _inst_enemy.image_index = choose(IMAGE_INDEX_ENEMIES.DEMON, IMAGE_INDEX_ENEMIES.SHIELD, IMAGE_INDEX_ENEMIES.SLIME, IMAGE_INDEX_ENEMIES.FAIRY)
+        }
         
         /// Se e para comecar no estado de andando
         if (_state_txt == "walk"){

@@ -25,6 +25,13 @@ coli = false
 timer_create_rastro_restart = 0.15 * FPS_GAME
 timer_create_rastro = 0
 
+///
+timer_not_coli_restart = 1 * FPS_GAME
+timer_not_coli = 0
+
+//
+percent_overload_power = 0
+
 
 // Variavel de controle para rodar a funcao de carga da mira
 draw_sight = false
@@ -131,11 +138,11 @@ state_thrown = function(){
     }
     
     /// Colidindo com outras entidades
-    if !coli{
+    if !coli and hspeed > 0{
         var _inst_coli_entity = instance_place(x, y, obj_entity)
         if _inst_coli_entity{
             // Se a instancia selecionada e diferente da instancia colidida
-            if (global.selected_entity != _inst_coli_entity and xstart != _inst_coli_entity.xstart){
+            if (global.selected_entity != _inst_coli_entity and (xstart != _inst_coli_entity.xstart or sprite_index != _inst_coli_entity.sprite_index)){
                 // Agora a colidida e a instancia selecionada
                 global.selected_entity = _inst_coli_entity
                 
@@ -145,6 +152,13 @@ state_thrown = function(){
                 
                 // Me destruindo
                 instance_destroy(id)
+                
+                ///
+                if (global.selected_entity.sprite_index == spr_boss_attack) and (global.selected_entity.image_index == 0){
+                    instance_destroy(global.selected_entity)
+                    cria_transicao_inicia(rm_menu)
+                    exit
+                }
                 
                 /// Aplico forca na nova instancia
                 with (global.selected_entity) {
@@ -190,12 +204,12 @@ state_thrown = function(){
     // Diminuindo a porcentagem da forca junto com as velocidades
     percent_force *= global.force_friction
     // Se basicamente parei
-    if (hspeed < 0.08 and vspeed < 0.08){
+    if (abs(hspeed) < 0.08 and abs(vspeed) < 0.08){
         // Voltando ao estado parado
         state = state_idle
         
         /// Avisando que o jogador perdeu
-        var _transicao = instance_create_depth(0, 0, 0, obj_transicao, { destino: rm_menu});
+        cria_transicao_inicia(rm_menu)
     }
     
     /// Motion distortion
