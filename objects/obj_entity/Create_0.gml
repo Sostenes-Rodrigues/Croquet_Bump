@@ -5,8 +5,25 @@ shoot_enable = false
 // If I can use the power to throw myself
 shoot_can = false
 
+// Se eu ja atirei o poder
+shoot_power = false
+
 // Carregamento para usar o poder (o valor vai ser acrescentado ate um valor fixo no estado "thrown")
 shoot_charge = 0
+
+// Angulo atual da mira da entidade para o poder
+ang_to_shoot = 0
+
+//
+percent_force = 1
+
+//
+coli = false
+
+
+/// Rastro
+timer_create_rastro_restart = 0.15 * FPS_GAME
+timer_create_rastro = 0
 
 
 // Variavel de controle para rodar a funcao de carga da mira
@@ -41,13 +58,35 @@ effect_stretch_squash = function(){
 
 #region Other functions
 apply_hit = function(){
+    /// Aplicando diferencas na forca de arremesso dependendo do tipo de inimigo
+    if (image_index == IMAGE_INDEX_ENEMIES.FAIRY){
+        percent_force *= 1.4
+    }
+    else if (image_index == IMAGE_INDEX_ENEMIES.SLIME){
+        percent_force *= 0.6
+    }
+    
     /// Velocidade dado pela tacada
-    hspeed = lengthdir_x(global.force_shoot, image_angle)
-    vspeed = lengthdir_y(global.force_shoot, image_angle)
+    hspeed = lengthdir_x(percent_force * global.force_shoot, image_angle) // Pego o hspeed e vspeed inicial, faco a porcentagem do atual e multiplico pela forca total
+    vspeed = lengthdir_y(percent_force * global.force_shoot, image_angle)
     
     /// Motion distortion
     tween(id, "image_xscale", 1.7, my_tween_animation, 0)
     tween(id, "image_yscale", 0.5, my_tween_animation, 0)
+    
+    
+    // Som da batida
+    audio_play_sound(snd_sfx_hit, 5, false)
+}
+
+criando_rastro = function(){
+    timer_create_rastro --
+    
+    if (timer_create_rastro <= 0){
+        var _inst_rastro = instance_create_depth(x, y, depth + 1, obj_rastro)
+        _inst_rastro.sprite_index = sprite_index
+        _inst_rastro.image_index = image_index
+    }
 }
 #endregion
 
@@ -80,6 +119,9 @@ state_thrown = function(){
         /// Salvando a escala da batida
         xscale_destiny_save = image_xscale
         yscale_destiny_save = image_yscale
+        
+        //
+        percent_force = 1
     }
     
     
@@ -89,34 +131,98 @@ state_thrown = function(){
     }
     
     /// Colidindo com outras entidades
-    var _inst_coli_entity = instance_place(x, y, obj_entity)
-    if _inst_coli_entity{
-        if (global.selected_entity != _inst_coli_entity){
-            global.selected_entity = _inst_coli_entity
-            
-            // Screenshake da batida no outro
-            screenshake(global.screenshake_hit)
+    if !coli{
+        var _inst_coli_entity = instance_place(x, y, obj_entity)
+        if _inst_coli_entity{
+            // Se a instancia selecionada e diferente da instancia colidida
+            if (global.selected_entity != _inst_coli_entity and xstart != _inst_coli_entity.xstart){
+                // Agora a colidida e a instancia selecionada
+                global.selected_entity = _inst_coli_entity
+                
+                // Para eu so poder colidir uma vez
+                coli = true
+                
+                
+                // Me destruindo
+                instance_destroy(id)
+                
+                /// Aplico forca na nova instancia
+                with (global.selected_entity) {
+                    // Ela pode carregar o poder
+                    shoot_enable = true
+                    
+                    // Parsando a porcentagem da minha forca restante
+                    percent_force = other.percent_force
+                    
+                    // Passo o angulo entre as colisoes
+                    image_angle = point_direction(other.x, other.y, x, y)
+                    /// Se sou o inimigo de escudo, vario um pouco o angulo
+                    if (image_index == IMAGE_INDEX_ENEMIES.SHIELD){
+                        image_angle += choose(-25, -15, 15, 25)
+                    }
+                    
+                    // Deixo ela no estado de arremesso
+                    state = state_thrown
+                    
+                    
+                    /// Destruindo as outras instancias da fileira
+                    with (obj_enemy_father) {
+                        // Se o x e igual ao meu
+                        if (x == global.selected_entity.x){
+                            // Se nao sou a que estar sendo arremecada
+                            if (state != state_thrown){
+                                instance_destroy(id)
+                            }
+                        }
+                    }
+                }
+                            
+                
+                // Screenshake da batida no outro
+                screenshake(global.screenshake_hit)
+            }
         }
     }
     
     /// Desacelerando
     hspeed *= global.force_friction
     vspeed *= global.force_friction
+    // Diminuindo a porcentagem da forca junto com as velocidades
+    percent_force *= global.force_friction
+    // Se basicamente parei
     if (hspeed < 0.08 and vspeed < 0.08){
         // Voltando ao estado parado
         state = state_idle
         
-        // Avisando que o jogador perdeu
-        image_blend = c_red
+        /// Avisando que o jogador perdeu
+        var _transicao = instance_create_depth(0, 0, 0, obj_transicao, { destino: rm_menu});
     }
     
     /// Motion distortion
     image_xscale = lerp(image_xscale, 1, 1 - global.force_friction)
     image_yscale = lerp(image_yscale, 1, 1 - global.force_friction)
     
+    /// Impedindo que saia pela vertical
+    if (y < 0){
+        y = 0
+        
+        vspeed *= -1
+        
+        // Som da batida
+        audio_play_sound(snd_sfx_hit, 5, false)
+    }
+    if (y > room_height){
+        y = room_height
+        
+        vspeed *= -1
+        
+        // Som da batida
+        audio_play_sound(snd_sfx_hit, 5, false)
+    }
+    
     
     // Efeito de rastro
-    
+    criando_rastro()
 }
 
 

@@ -30,7 +30,7 @@ if (timer_delay_start <= 0) and can_shoot{
 
 /// Me destruindo quando eu sai da visao da camera
 // Se sai pela parte esquerda da camera
-if ((x - sprite_width / 2) < camera_get_view_x(view_camera[0])){
+if ((x + sprite_width) < camera_get_view_x(view_camera[0])){
     // Me destruo
     instance_destroy(id)
 }

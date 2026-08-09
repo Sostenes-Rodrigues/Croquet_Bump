@@ -5,7 +5,8 @@ timer_delay_start = 1.5 * FPS_GAME
 can_shoot = true
 
 // Angulo atual da mira do player
-ang_to_shoot = 0
+ang_to_shoot_start = 0
+ang_to_shoot = ang_to_shoot_start
 
 // Variavel de controle para rodar a funcao de carga da mira
 draw_sight = false

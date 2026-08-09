@@ -1,0 +1,7 @@
+sprite explosao: untiedgames.itch.io/
+
+base codigo do circulo: David Strachan
+
+font: Billy Argel Fonts
+
+musica: sieuamthanh

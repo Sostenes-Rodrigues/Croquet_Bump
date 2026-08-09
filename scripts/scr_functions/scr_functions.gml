@@ -65,11 +65,15 @@ function Loading_sight(_ang, _ang_start, _x_ori, _y_ori){
     static __increase = global.variation_ang_spd
     
     var _rad = 200
+    var _ang_max = _ang_start + global.variation_ang
+    var _ang_min = _ang_start - global.variation_ang
     
     //
-    _ang = clamp(_ang + __increase, -global.variation_ang, global.variation_ang)
+    _ang = clamp(_ang + __increase, _ang_start - global.variation_ang, _ang_start + global.variation_ang)
     
-    if (abs(_ang) >= global.variation_ang) __increase *= -1;
+    if (_ang >= _ang_max or _ang <= _ang_min){
+        __increase *= -1
+    }
     
     ///
     draw_circular_bar(_x_ori, _y_ori, global.variation_ang * 2, 360, c_black, _rad / 4, 1, 5, _ang_start - global.variation_ang, 1)
@@ -90,7 +94,6 @@ function Loading_sight(_ang, _ang_start, _x_ori, _y_ori){
     var _y2 = _y_ori + lengthdir_y(_rad, _ang)
     draw_line_width_colour(_x_ori, _y_ori, _x2, _y2, 5, c_black, c_black)
     
-    
     // Return ang
-    return _ang
+    return (_ang)
 }

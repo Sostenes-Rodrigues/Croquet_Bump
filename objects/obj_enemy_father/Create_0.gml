@@ -9,7 +9,7 @@ state_walk = function(){
         state_txt = state_txt_struct_strings.walk
         
         // Walk to player
-        hspeed = -1
+        hspeed = -0.5
     }
     
     /// Effect Stretch and Squash to walk

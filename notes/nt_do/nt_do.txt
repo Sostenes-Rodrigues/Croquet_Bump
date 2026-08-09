@@ -1,30 +1,55 @@
+GDD (Verificar como vai ser para mandar o projeto)
+
+FAZER OS EFEITOS UNICOS DE CADA INIMIGO - Feito
+
+PEGAR OS SONS (botao prescionado e sobre, tacada, batida [botar esse som tambem na batida da parede], explosao, poder) E UMA MUSICA - Feito
+
+Menu com as opcoes, Jogar, Ligar ou desligar o tutorial e Ligar ou desligar tela cheia e Sair - Feito
+
 Player criar a mira e fazer ela rodar - Feito
 
 Criar o obj rastro para o efeito maneiro
 
-Fazer o obj control criar as ondas de inimigos
+Fazer o obj control criar as ondas de inimigos - Feito
 
+O balanceamento precisa ser ajeitado para nao ter que ficar esperando os inimigos vinherem - Feito
 
+Fazer a forca da colisao nao ser total, deixei comentarios no metodo hit - Feito
 
+Destruir a fileira onde teve colisao - Feito
 
+Ajeitar o lancamento de poder - Feito
 
+Ajeitar o lancamento do poder na Entidade Selecionada - Feito
 
+Efeito de quando o poder estar sendo mirado (talvez so um screenshake)
 
-Mira (ang_start): X do inimigo mais proximo e Y do meio da room
+A instancia que estar carregando o poder vai ficando meio vermelho e roxo ate a cor ficar muito forte e ele explodir
 
-
+Fazer o BOSS
 
 Fazer um quadro com um desenho tipo do "tutorial de issac" (Pegar o obj tutorial que fiz no TCC)
 
-with (global.selected_entity) {
-    // Me desenhando
-    draw_self()
-    
-    
-	/// Rodar a funcao de carga da mira
-    if draw_sight{
-        if instance_exists(global.selected_entity){
-            ang_to_shoot = Loading_sight(ang_to_shoot, 0, global.selected_entity.x, global.selected_entity.y)
-        }
-    }
-}
+Ir para room menu ao o jogador perder - Feito
+
+Lembrar de deixar o jogo aleatorio
+
+Lembrar de voltar o alvo do jogo para o normal
+
+Criar a room final com o desenho do boss chorando e ao apertar qualquer botao, voltar para a room menu
+
+Resolver o bug do poder infinito - Feito
+
+Colocar todos os comandos no botao esquerdo do mouse - Feito
+
+Testar colisao quadrada - Feito
+
+
+
+Desenhos que falta:
+    CAPA (Required (Minimum: 315x250, Recommended: 630x500))
+    quadro do tutorial
+    explosao de fogo
+    carga do poder (talvez)
+    titulo do jogo (espaco de tras)
+    Final

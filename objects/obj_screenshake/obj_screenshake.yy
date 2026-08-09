@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Objetcs_Controls",
-    "path":"folders/Objects/Objetcs_Controls.yy",
+    "path":"folders/Objects/Game/Objetcs_Controls.yy",
   },
   "parentObjectId":null,
   "persistent":false,

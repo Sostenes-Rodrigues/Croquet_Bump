@@ -10,7 +10,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Entity",
-    "path":"folders/Objects/Entity.yy",
+    "path":"folders/Objects/Game/Entity.yy",
   },
   "parentObjectId":null,
   "persistent":false,
