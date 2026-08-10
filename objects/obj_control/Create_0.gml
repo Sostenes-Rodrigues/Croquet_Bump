@@ -16,7 +16,7 @@ creation_sep_round_x_max = camera_get_view_width(view_camera[0]) / 1.4
 array_last3_pos_x_round = []
 
 // Numero de rounds ate o boss
-round_max = 5
+round_max = 12
 
 // Round atual
 round_current = 0

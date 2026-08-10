@@ -5,8 +5,8 @@ draw_set_color(c_white)
 draw_set_alpha(1)
 
 /// Rodando a UI do tutorial
-if (instance_exists(obj_tutorial)) exit;
-tu_alp_acel = lerp(tu_alp_acel, .6, .02)
+//if (instance_exists(obj_tutorial)) exit;
+tu_alp_acel = lerp(tu_alp_acel, .6, .005)
 tu_alp = lerp(tu_alp, 1, tu_alp_acel)
 draw_set_alpha(tu_alp)
 tutorial_ui()

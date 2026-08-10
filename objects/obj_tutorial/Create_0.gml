@@ -13,10 +13,11 @@ if instance_exists(obj_pause) {
 */
 
 /// Variaveis de objeto
-tutorial_imgs = [spr_web_tutorial1, spr_web_tutorial2, spr_web_tutorial3]
-tutorial_string = ["Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex sapien. Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.",
-"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sit amet consectetur adipiscing elit quisque faucibus ex. Adipiscing elit quisque faucibus ex sapien vitae pellentesque.",
-"Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean."]
+tutorial_imgs = [spr_tuto_1, spr_tuto_2, spr_tuto_3, spr_tuto_4]
+tutorial_string = ["Oh não! [c_red][shake]O rei demonia[c_white][/shake] está vindo dominar toda civilização a sua vista. Só quem pode impedi-lo é o cavaleiro que embunha o [c_yellow][wave]Martelo Estelar[c_white][/wave] e a [jitter][rainbow]Bola Cósmica[/jitter][/rainbow].",
+"Segure o [c_blue][wheel]Botão Esquerdo do Mouse[c_white][/wheel] para mirar e soltei para lançar.",
+"Ao acertar em algo, [c_purple][pulse]possui[/pulse][c_white] aquele objeto e destroi todos em sua volta. Não deixe ninguém passar, se não vão pegar o cavaleiro :(",
+"Após um intervalo, você poderar se propossionar usando seu poder segurando o [c_blue][wheel]botão esquerdo do mouse[c_white][/wheel] e depois soltando, só cuidado para não sobrecarregar. Agora vá explodir seus inimigos :)"]
 tutorial_length = array_length(tutorial_imgs) - 1
 
 //
@@ -76,7 +77,7 @@ tutorial_ui = function() {
 	img_cont_subimg++
 
 	// Calcula o total de subimagens
-	var _total_subimgs = sprite_get_number(spr_web_tutorial1)
+	var _total_subimgs = sprite_get_number(spr_tuto_1)
 
 	// Reinicia o contador quando atingir o ciclo completo
 	if (img_cont_subimg >= frames_por_subimg * _total_subimgs) img_cont_subimg = 0;
@@ -103,15 +104,17 @@ tutorial_ui = function() {
 	var _txt_y = _img_y + _img_h + _box_h * 0.05
 	
 	/// Sets para o texto
-	draw_set_font(global.font_paper)
+	draw_set_font(fnt_exemplo_botao)
 	draw_set_halign(fa_middle)
 	draw_set_valign(fa_top)
 	
 	/// Escrevendo o texto (ver se bota o scribbe)
 	draw_set_color(c_black)
-	draw_text_ext_transformed(_txt_x + 2, _txt_y + 2, tutorial_string[_tutorial_index], -1, _box_w * .95, 1, 1, 0)
+	//draw_text_ext_transformed(_txt_x + 2, _txt_y + 2, tutorial_string[_tutorial_index], -1, _box_w * .95, 1, 1, 0)
+    draw_text_scribble_ext(_txt_x + 2, _txt_y + 2, tutorial_string[_tutorial_index], _box_w * .95)
 	draw_set_color(c_white)
-	draw_text_ext_transformed(_txt_x, _txt_y, tutorial_string[_tutorial_index], -1, _box_w * .95, 1, 1, 0)
+	//draw_text_ext_transformed(_txt_x, _txt_y, tutorial_string[_tutorial_index], -1, _box_w * .95, 1, 1, 0)
+    draw_text_scribble_ext(_txt_x, _txt_y, tutorial_string[_tutorial_index], _box_w * .95)
 	#endregion
 	
     #region Botões de navegação

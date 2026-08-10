@@ -134,7 +134,7 @@ state_thrown = function(){
     
     /// Carregando o poder
     if shoot_enable and (global.selected_entity == id){
-        shoot_charge = clamp(shoot_charge + 1, 0, global.time_charge_power)
+        shoot_charge = clamp(shoot_charge + 1, -100, global.time_charge_power)
     }
     
     /// Colidindo com outras entidades

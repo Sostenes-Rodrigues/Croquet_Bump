@@ -28,15 +28,15 @@ A instancia que estar carregando o poder vai ficando meio vermelho e roxo ate a 
 
 Fazer o BOSS - Feito
 
-Fazer um quadro com um desenho tipo do "tutorial de issac" (Pegar o obj tutorial que fiz no TCC), as imagens vao ser prints do jogo
+Fazer um quadro com um desenho tipo do "tutorial de issac" (Pegar o obj tutorial que fiz no TCC), as imagens vao ser prints do jogo - Feito
 
 Ir para room menu ao o jogador perder - Feito
 
-Lembrar de deixar o jogo aleatorio
+Lembrar de deixar o jogo aleatorio - Feito
 
-Lembrar de voltar o alvo do jogo para o normal
+Lembrar de voltar o alvo do jogo para o normal - Feito
 
-Criar a room final com o desenho do boss chorando e ao apertar qualquer botao, voltar para a room menu
+Criar a room final com o desenho do boss chorando e ao apertar qualquer botao, voltar para a room menu - Feito
 
 Resolver o bug do poder infinito - Feito
 
@@ -44,9 +44,11 @@ Colocar todos os comandos no botao esquerdo do mouse - Feito
 
 Testar colisao quadrada - Feito
 
+Deixar o jogo mais longo
 
 
-Desenhos que falta: URGENTE
+
+Desenhos que falta: - Feito
     CAPA (Required (Minimum: 315x250, Recommended: 630x500))
     quadro do tutorial
     explosao de fogo
@@ -70,5 +72,5 @@ Desenhos que falta: URGENTE
 Tutorial:
     Oh não! O rei demonia está vindo dominar toda civilização a sua vista. So quem pode impedi-lo é o cavaleiro que embunha o Martelo Estelar e a Bola Cósmica.
     Segure o Botão Esquerdo do Mouse para mirar e soltei para lançar.
-    Ao acertar em algo, possua aquele objeto.
+    Ao acertar em algo, possui aquele objeto.
     Após um interva, vocẽ poderar se propossionar usando seu poder segurando o botao esquerdo do mouse e depois soltando, só cuidado para não sobrecarregar. Agora vá explodir seus inimigos :)

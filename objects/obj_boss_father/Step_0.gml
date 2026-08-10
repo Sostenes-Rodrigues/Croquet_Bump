@@ -17,6 +17,8 @@ if timer_invi <= 0{
             exit
         }
         else if instance_exists(obj_boss_bottom){
+            instance_destroy(id)
+            instance_destroy(global.selected_entity)
             // Codigo para
             defeated_boss()
         }

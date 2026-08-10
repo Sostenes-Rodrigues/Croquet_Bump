@@ -2,4 +2,4 @@
 window_set_fullscreen(true)
 
 // Deixando o jogo aleatorio
-//randomise()
+randomise()

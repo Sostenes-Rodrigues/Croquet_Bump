@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_sfx_power",
+  "%Name":"snd_cry",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.5340589,
+  "duration":0.76977324,
   "exportDir":"",
-  "name":"snd_sfx_power",
+  "name":"snd_cry",
   "parent":{
     "name":"SFX",
     "path":"folders/Sounds/SFX.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_sfx_power.wav",
-  "volume":0.28,
+  "soundFile":"snd_cry.wav",
+  "volume":1.0,
 }

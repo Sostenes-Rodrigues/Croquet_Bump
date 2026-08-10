@@ -34,7 +34,9 @@ explodir_parte = function(_obj){
         shoot_power = false
         
         // Carregamento para usar o poder (o valor vai ser acrescentado ate um valor fixo no estado "thrown")
-        shoot_charge = 0
+        shoot_charge = -15
+        
+        tween(global.selected_entity, "percent_overload_power", 0, tween_animation.circ_in, 1)
     }
     
     
@@ -51,5 +53,15 @@ explodir_parte = function(_obj){
 
 // Metodo para quando o boss for derrotado
 defeated_boss = function(){
-    show_message("Ganhou")
+    // Explosao (Mudar depois)
+    //var _inst_effect = instance_create_depth(x, y, depth - 1, obj_effect_destroy_self)
+    //_inst_effect.sprite_index = spr_charge_power
+    create_explo(x, y)
+    
+    // Som da explosao
+    audio_play_sound(snd_sfx_explo, 0, false)
+    
+    
+    //
+    instance_create_layer(x, y, "Ball", obj_boss_mini)
 }

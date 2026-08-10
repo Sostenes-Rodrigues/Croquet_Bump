@@ -97,3 +97,20 @@ function Loading_sight(_ang, _ang_start, _x_ori, _y_ori){
     // Return ang
     return (_ang)
 }
+
+
+//
+function create_explo(_x, _y){
+    var _ang_start = irandom(359)
+    var _ang_div_length = 15
+    var _ang_div = 360 / _ang_div_length
+    
+    for (var i = 0; i < _ang_div; i++) {
+        var _ang = _ang_start + (_ang_div_length * i)
+        
+    	var _inst_part = instance_create_layer(_x, _y, "Ball", obj_explo)
+        _inst_part.image_angle = _ang
+        _inst_part.hspeed = lengthdir_x(20, _ang)
+        _inst_part.vspeed = lengthdir_y(20, _ang)
+    }
+}
